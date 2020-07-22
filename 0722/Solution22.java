@@ -47,14 +47,12 @@ public class Solution22 {
 								if(lake[row][col]==1) {
 									break outer;
 								}
-								if(h == 1) {
-									lake[row][col]=1;
-								}
 							}
 							else {
 								break outer;
 							}
 						}
+						lake[row][col]=1;
 						answer++;
 					}
 					if(dir==3) {//좌
@@ -64,14 +62,12 @@ public class Solution22 {
 								if(lake[row][col]==1) {
 									break outer;
 								}
-								if(h == 1) {
-									lake[row][col]=1;
-								}
 							}
 							else {
 								break outer;
 							}
 						}
+						lake[row][col]=1;
 						answer++;
 					}
 					if(dir==2) {//하
@@ -81,14 +77,12 @@ public class Solution22 {
 								if(lake[row][col]==1) {
 									break outer;
 								}
-								if(v == 1) {
-									lake[row][col]=1;
-								}
 							}
 							else {
 								break outer;
 							}
 						}
+						lake[row][col]=1;
 						answer++;
 					}
 					if(dir==1) {//상
@@ -98,14 +92,12 @@ public class Solution22 {
 								if(lake[row][col]==1) {
 									break outer;
 								}
-								if(v == 1) {
-									lake[row][col]=1;
-								}
 							}
 							else {
 								break outer;
 							}
 						}
+						lake[row][col]=1;
 						answer++;
 					}
 				}
