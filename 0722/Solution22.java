@@ -57,7 +57,6 @@ public class Solution22 {
 								lake[row][col]=1;
 							}
 						}
-						System.out.println(row + " " + col);
 					}
 					if(dir==3) {//좌
 						for(int h=3;h>=1; h--) {
@@ -76,7 +75,6 @@ public class Solution22 {
 								lake[row][col]=1;
 							}
 						}
-						System.out.println(row + " " + col);
 					}
 					if(dir==2) {//하
 						for(int v=3; v>=1; v--) {
@@ -95,7 +93,6 @@ public class Solution22 {
 								lake[row][col]=1;
 							}
 						}
-						System.out.println(row + " " + col);
 					}
 					if(dir==1) {//상
 						for(int v=3; v>=1; v--) {
@@ -114,7 +111,6 @@ public class Solution22 {
 								lake[row][col]=1;
 							}
 						}
-						System.out.println(row + " " + col);
 					}
 				}
 			}
