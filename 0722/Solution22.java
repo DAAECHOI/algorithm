@@ -55,7 +55,6 @@ public class Solution22 {
 								break outer;
 							}
 						}
-						System.out.println(row + " " + col);
 						answer++;
 					}
 					if(dir==3) {//좌
@@ -73,7 +72,6 @@ public class Solution22 {
 								break outer;
 							}
 						}
-						System.out.println(row + " " + col);
 						answer++;
 					}
 					if(dir==2) {//하
@@ -91,7 +89,6 @@ public class Solution22 {
 								break outer;
 							}
 						}
-						System.out.println(row + " " + col);
 						answer++;
 					}
 					if(dir==1) {//상
@@ -109,7 +106,6 @@ public class Solution22 {
 								break outer;
 							}
 						}
-						System.out.println(row + " " + col);
 						answer++;
 					}
 				}
