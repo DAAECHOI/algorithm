@@ -27,7 +27,7 @@ public class Solution22 {
 			for(int i = 1; i < S; i++) {// 0번 인덱스는 조절을 위해 버림
 				strider[i][0] = sc.nextInt();// 행 위치
 				strider[i][1] = sc.nextInt();// 열 위치
-				strider[i][2] = sc.nextInt();// 방향(아래 1: , 오른: 2)
+				strider[i][2] = sc.nextInt();// 방향(상:1, 하:2, 좌:3, 우:4)
 			}
 			
 			answer = 0;// 정답 초기화!!
