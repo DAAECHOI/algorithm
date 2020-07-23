@@ -27,11 +27,11 @@ public class ProductTest {
 		}
 		
 		for( TV tv : tvs ) {
-			System.out.println( tv.toString() );
+			System.out.println( tv );
 		}
 		
 		for( Refrigerator ref : refs ) {
-			System.out.println( ref.toString() );
+			System.out.println( ref );
 		}
 		
 	}
