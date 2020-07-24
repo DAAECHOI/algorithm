@@ -4,6 +4,7 @@ public class ProductTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		TV[] tvs = new TV[5];
 		Refrigerator[] refs = new Refrigerator[5];
 		

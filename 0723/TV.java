@@ -12,7 +12,7 @@ public class TV {// Java Beans: 멤버 변수는 private, 거기에 접근할 �
 
 	public TV(int num, String name, int price, int qty, int inch, String dType) {
 		//생성자에서 명시적으로 this() 또는  super()를 호출하지 않으면 자동으로  super()삽입
-//		super(); 생성자의 첫번째 줄에서만 사용 가능
+		//super(); 생성자의 첫번째 줄에서만 사용 가능
 		this.num = num;
 		this.name = name;
 		this.price = price;
@@ -76,10 +76,24 @@ public class TV {// Java Beans: 멤버 변수는 private, 거기에 접근할 �
 	public void setdType(String dType) {
 		this.dType = dType;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "TV [제품 번호=" + num + ", 제품 이름=" + name + ", 가격=" + price + ", 수량=" + qty + ", 인치=" + inch + ", 디스플레이 타입=" + dType + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("TV [num=");
+		builder.append(num);
+		builder.append(", name=");
+		builder.append(name);
+		builder.append(", price=");
+		builder.append(price);
+		builder.append(", qty=");
+		builder.append(qty);
+		builder.append(", inch=");
+		builder.append(inch);
+		builder.append(", dType=");
+		builder.append(dType);
+		builder.append("]");
+		return builder.toString();
 	}
 	
 }
