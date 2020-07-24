@@ -1,12 +1,12 @@
 package com.ssafy.java.day4;
 
 public class TV {
-	int num;
-	String name;
-	int price;
-	int qty;
-	int inch;
-	String dType;
+	private int num;
+	private String name;
+	private int price;
+	private int qty;
+	private int inch;
+	private String dType;
 	
 	public TV() {
 		super();

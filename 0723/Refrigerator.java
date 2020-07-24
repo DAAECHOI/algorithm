@@ -1,11 +1,11 @@
 package com.ssafy.java.day4;
 
 public class Refrigerator {
-	int num;
-	String name;
-	int price;
-	int qty;
-	int L;
+	private int num;
+	private String name;
+	private int price;
+	private int qty;
+	private int L;
 	
 	public Refrigerator() {
 		super();
