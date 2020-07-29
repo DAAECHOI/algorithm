@@ -16,26 +16,26 @@ public class Algo02 {
 			//index : 1부터 N까지 value, cnt : 달팽이처럼 돌기위해 반복문에 들어갈 count
 			int r = 0, c = -1;
 			
-			for(int ri = 0; ri < N-cnt; ri++) {
+			for(int ri = 0; ri < N-cnt; ri++) {//우
 				c++;
 				snail[r][c] = index++;
 			}
 			cnt++;
 			while(cnt <= N){
-				for(int d = 0; d < N-cnt; d++) {
+				for(int d = 0; d < N-cnt; d++) {//하
 					r++;
 					snail[r][c] = index++;
 				}
-				for(int l = 0; l < N-cnt; l++) {
+				for(int l = 0; l < N-cnt; l++) {//좌
 					c--;
 					snail[r][c] = index++;
 				}
 				cnt++;
-				for(int u = 0; u < N-cnt; u++) {
+				for(int u = 0; u < N-cnt; u++) {//상
 					r--;
 					snail[r][c] = index++;
 				}
-				for(int ri = 0; ri < N-cnt; ri++) {
+				for(int ri = 0; ri < N-cnt; ri++) {//우
 					c++;
 					snail[r][c] = index++;
 				}
