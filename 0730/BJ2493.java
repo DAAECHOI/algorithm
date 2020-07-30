@@ -1,17 +1,18 @@
-package com.ssafy.java.algo;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class BJ2493 {
 
 	static Stack<Integer> arr;
-	static int[] answer;
-	static int[] tmp;
+	static Stack<Integer> answer;
+	static Stack<Integer> tmp;
 	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder output = new StringBuilder();
 	static int N;
@@ -22,8 +23,8 @@ public class BJ2493 {
 		String line = input.readLine();
 		N = Integer.parseInt(line);
 		arr = new Stack<Integer>();
-		answer = new int[N];
-		tmp = new int[N];
+		answer = new Stack<Integer>();
+		tmp = new Stack<Integer>();
 		
 		StringTokenizer tokens = new StringTokenizer(input.readLine(), " ");
 
@@ -31,33 +32,32 @@ public class BJ2493 {
             arr.push(Integer.valueOf(tokens.nextToken()));
         }
 
-        int answerIdx = 0;
         for(int i = 0; i < N; i++) {
-            tmp[i] = arr.pop();
-            int tmpIdx = i+1;
+            tmp.push(arr.pop());
+            int size = tmp.size();
             if(arr.isEmpty()) {
-            	for(int t = tmpIdx; t <= answerIdx; t--) {
-            		answer[answerIdx] = 0;
-            		answerIdx++;
+            	for(int t = 0; t < size; t++) {
+            		answer.push(0);
+            		tmp.pop();
             	}
             	break;
             }
-	        if(tmp[i] < arr.peek()) {
-	        	if(arr.peek()-tmp[i] < tmpIdx)
-	        		tmpIdx = arr.peek()-tmp[i];
-	        	for(int t = tmpIdx; t <= answerIdx; t--) {
-	    	        if(tmp[t] < arr.peek()) {
-		        		answer[answerIdx] = arr.size();
-		        		answerIdx++;
+	        if(tmp.peek() < arr.peek()) {
+	        	if(arr.peek()-tmp.peek() < size)
+	        		size = arr.peek()-tmp.peek();
+	        	for(int t = 0; t < size; t++) {
+	    	        if(tmp.peek() < arr.peek()) {
+		        		answer.push(arr.size());
+					    tmp.pop();
 	    	        }
 	    	        else
 	    	        	break;
 	        	}
 	        }
         }
-        for(int i = N-1; i >= 0; i--)
-        	System.out.print(answer[i] + " ");
-        
+        for(int i = 0; i < N; i++)
+        	System.out.print(answer.pop() + " ");
+        System.out.println();
 	}
 
 	static String src = "5\r\n" + 
