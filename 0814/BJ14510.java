@@ -5,7 +5,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.StringTokenizer;
-
+/**
+ * @author DAAECHOI
+ * @date 2020. 8. 17
+ * @see
+ * @mem 13152KB
+ * @time 84ms
+ * @caution
+ * [고려사항] 재귀문제 연습 필요
+ * [입력사항]
+ * [출력사항]
+ */
 public class BJ14510 {
 	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder output = new StringBuilder();

@@ -8,7 +8,17 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+/**
+ * @author DAAECHOI
+ * @date 2020. 8. 17
+ * @see
+ * @mem 280212KB
+ * @time 1204ms
+ * @caution
+ * [고려사항] 메모리와 시간이 비교적 크다
+ * [입력사항]
+ * [출력사항]
+ */
 public class BJ14888 {
 	static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	static StringBuilder output = new StringBuilder();
