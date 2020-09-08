@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header>
+		<h1 align="center">Become a Member</h1>
+	</header>
+	<hr color="orange">
+	
+	<div>
+		<form>
+			<fieldset>
+				<legend>Registration Information</legend>
+				<div>
+					<label for="email">E-Mail: </label>
+					<input id="email" type="email">
+				</div>
+				<div>
+					<label for="pwd">Password: </label>
+					<input id="pwd" type="password" placeholder="At least 6 letter or numbers">
+				</div>
+				<div>
+					<label for="pwdck">Verify Password: </label>
+					<input id="pwdck" type="password">
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Member Information</legend>
+				<div>
+					<label for="firstname">First Name: </label>
+					<input id="firstname" type="text">
+				</div>
+				<div>
+					<label for="lastname">Last Name: </label>
+					<input id="lastname" type="text">
+				</div>
+				<div>
+					<label for="address">Address: </label>
+					<input id="address" type="text">
+				</div>
+				<div>
+					<label for="state">State: </label>
+					<input id="state" type="text" placeholder="2-chracter code">
+				</div>
+				<div>
+					<label for="zipcode">ZIP Code: </label>
+					<input id="zipcode" type="text" placeholder="5 or 9 digits">
+				</div>
+				<div>
+					<label for="phone">Phone Number: </label>
+					<input id="phone" type="tel" placeholder="999-999-9999">
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Membership Information</legend>
+				<div>
+					<label for="memtype">Membership Type: </label>
+					<select id="memtype">
+						<option value="Junior" selected="selected">Junior
+						<option value="Senior">Senior
+					</select>
+				</div>
+				<div>
+					<label for="startdate">Starting Date: </label>
+					<input id="startdate" type="date" placeholder="At least 6 letter or numbers">
+				</div>
+				<div>
+					<label for="tickets">Tickets for Guests: </label>
+					<input id="tickets" type="number" value="2">
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Submit Your Membership</legend>
+				<div>
+					<input id="submit" type="submit" value="Submit">
+				</div>
+				<div>
+					<input id="reset" type="reset" value="Reset Fields">
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	
+	<hr color="orange">
+	<footer>
+		<p align="right">ⓒ Copyright 2013 SCSA.</p>
+	</footer>
+</body>
+</html>
