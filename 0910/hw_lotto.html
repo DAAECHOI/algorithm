@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<header>
+			<h2>대박을 기원합니다~~</h2>
+		</header>
+		<nav id="list">
+			<ul id="ul">
+	
+			</ul>
+		</nav>
+	</div>
+</body>
+<script>
+	let arr = [];
+	let i = 0;
+	let repeat = setInterval(function() {
+		arr[i] = parseInt((Math.random() * 45) + 1);
+		let flag = false;
+		for (let j = 0; j < i; j++) {
+			if (arr[j] == arr[i]) {
+				flag = true;
+				break;
+			}
+		}
+		console.log(arr[i] + " : " + i);
+		if (!flag) {
+			let newli = document.createElement("li");
+			newli.style.background = "yellow";
+			newli.style.height = "40px";
+			newli.style.width = "40px";
+			newli.style.borderRadius = "50%";
+			newli.style.listStyleType = "none";
+			newli.style.fontSize = "25px";
+			newli.style.float = "left";
+			newli.style.margin = "0 50px";
+			let num = document.createTextNode(" " + arr[i] + " ");
+			let p = document.getElementById("ul");
+			p.appendChild(newli);
+			newli.appendChild(num);
+			i++;
+		}
+		if (i == 6) {
+			clearInterval(repeat);
+		}
+	}, 1000);
+	
+	document.getElementById("list").style.background = "skyblue";
+	document.getElementById("list").style.height = "300px";
+</script>
+</html>
