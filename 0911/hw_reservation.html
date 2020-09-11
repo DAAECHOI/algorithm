@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+#optionField {
+	display: none;
+}
+</style>
+
+</head>
+
+
+<body>
+	<header>
+		<hgroup>
+			<h1>영화 예매</h1>
+			<h2>쿵푸팬더</h2>
+		</hgroup>
+	</header>
+
+	<article id="reservation">
+		<section>
+			<!-- <img id="poster" alt="쿵푸팬더 poster" src="./img/movie_image2.jpg"> -->
+		</section>
+		<section>
+			<form id="regist">
+				<fieldset id="wrapperFieldset">
+					<legend id="wrapperLegend">예매정보 입력</legend>
+					<label>상영관</label>
+					<select id="place">
+						<option>CGV</option>
+						<option>롯데시네마</option>
+						<option>메가박스</option>
+						<option>프리머스</option>
+						<option>다른극장</option>
+					</select>
+					<label>날 &nbsp;짜</label>
+					<input type="date" id="date" />
+					<br />
+					<fieldset class="innerFiledSet">
+						<legend>시간</legend>
+						<input type="radio" name="time" value="08:30" id="t1" />
+						<label for="t1">08:30</label>
+						<input type="radio" name="time" value="11:00" id="t2" />
+						<label for="t2">11:00</label>
+						<input type="radio" name="time" value="14:20" id="t3" />
+						<label for="t3">14:20</label>
+						<input type="radio" name="time" value="17:25" id="t4" />
+						<label for="t4">17:25</label>
+						<input type="radio" name="time" value="20:10" id="t5" />
+						<label for="t5">20:10</label>
+						<input type="radio" name="time" value="23:05" id="t6" />
+						<label for="t6">23:05</label>
+					</fieldset>
+
+
+					<div>
+						<label>요&nbsp;금</label> <span id="priceLable" data-val="9000">W9,000</span>
+						<br> <label>인&nbsp;원</label>
+						<input type="number" required="required" min="1" id="person" />
+						<br> <label>금&nbsp;액</label>
+						<input type="number" readonly="readonly" id="price" />
+					</div>
+					<div>
+						<input type="checkbox" id="add">
+						<label for="add">추가</label>
+
+						<fieldset class="innerFiledSet" id="optionField">
+							<legend>옵션</legend>
+							<input type="checkbox" name="popcorn" value="5000" id="popcorn" />
+							<label for="popcorn">팝콘 W5,000</label>
+							<input type="checkbox" name="cola" value="2000" id="drink" />
+							<label for="drink">음료 W2,000</label>
+						</fieldset>
+					</div>
+				</fieldset>
+				<fieldset id="buttons">
+					<input type="reset" id="reset" value="취소">
+					<input type="submit" id="submit" value="예매">
+				</fieldset>
+			</form>
+		</section>
+	</article>
+</body>
+
+<script>
+
+	function getPrice(){
+		let lable = $("#priceLable").attr("data-val");
+		let person = $("#person").val();
+		$("#price").val(parseInt(lable) * parseInt(person));
+	}
+	
+	let orgLable = 0;
+	$(document).ready(function(){
+		$("#person").val($("#person").attr("min"));
+		orgLable = $("#priceLable").attr("data-val");
+		getPrice();
+	})
+	
+	$("#person").on("change", function(){
+		getPrice();
+	})
+	
+	$("[name=time]").on("change", function(){
+		let checked = $("[name=time]:checked").attr("id");
+		$("#person").val($("#person").attr("min"));
+		if(checked == "t1"){
+			$("#priceLable").attr("data-val", "5000");
+			$("#priceLable").html("W5,000");
+			$("#priceLable").text();
+			getPrice();
+		}
+		else{
+			$("#priceLable").attr("data-val", orgLable);
+			$("#priceLable").html("W9,000");
+			$("#priceLable").text();
+			getPrice();
+		}
+	})
+	
+	$("#add").on("click", function(){
+		let checked = $("#add").is(":checked");
+		if(checked){
+			$("#optionField").css("display", "block");
+		}
+		else{
+			$("#optionField").css("display", "none");
+		}
+	})
+	
+	$("#popcorn").on("click", function(){
+		total += parseInt($("#popcorn").val());
+	})
+	
+	$("#drink").on("click", function(){
+		total += parseInt($("#drink").val());
+	})
+	
+	let total = 0;
+	$("#submit").on("click", function(){
+		total += parseInt($("#price").val());
+		let date = new Date($("#date").val());
+		let day = date.getDate();
+		let month = date.getMonth() + 1;
+		let year = date.getFullYear();
+		let popc = "";
+		if($("#popcorn").is(":checked")){
+			popc = "팝콘";
+		}
+		let drink = "";
+		if($("#drink").is(":checked")){
+			drink = "음료";
+		}
+		alert("상영관 " + $("#place option:selected").val() + "\n날짜 " + year + "년 " + month + "월 " + day + "일" + 
+				"\n시간 " + $("[name=time]:checked").val() + "\n추가 옵션 " + popc + " " + drink + "\n총 요금 " + total + "원");
+	})
+</script>
+</html>
