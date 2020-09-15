@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<users>
+	<user id = "bori">
+		<password>bori</password>
+		<username>보리</username>
+		<phone>01012345678</phone>
+		<email>bori@gmail.com</email>
+		<address>서울특별시</address>
+	</user>
+	<user id = "zzzzddz">
+		<password>zzzzddz</password>
+		<username>다애</username>
+		<phone>01098765432</phone>
+		<email>zzzzddz@naver.com</email>
+		<address>경기도시흥시</address>
+	</user>
+</users>
