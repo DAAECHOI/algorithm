@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="d-flex justify-content-end mb-3">
+				<div class="p-2 font-weight-bold" id="loginUserid">싸피</div>
+				<div class="p-2">님 환영합니다.</div>
+				<div class="p-2">
+					<a href="#">로그아웃</a>
+				</div>
+			</div>
+		</header>
+		<h2 class="text-center">SSAFY 게시판</h2>
+		<form>
+			<div class="form-group">
+				<label for="title">제목:</label>
+				<input type="text" class="form-control" id="title">
+			</div>
+			<div class="form-group">
+				<label for="content">내용:</label>
+				<textarea class="form-control" rows="10" id="content"></textarea>
+			</div>
+			<div class="text-center">
+				<button type="submit" class="btn btn-primary">글작성</button>
+				<button type="reset" class="btn btn-warning">초기화</button>
+				<button type="button" class="btn btn-secondary">글목록</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

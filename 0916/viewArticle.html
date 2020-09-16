@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="d-flex justify-content-end mb-3">
+				<div class="p-2 font-weight-bold" id="loginUserid">싸피</div>
+				<div class="p-2">님 환영합니다.</div>
+				<div class="p-2">
+					<a href="#">로그아웃</a>
+				</div>
+			</div>
+		</header>
+		<h2 class="text-center">SSAFY 게시판</h2>
+		<div class="mb-3">
+			<button type="button" class="btn btn-primary">새글쓰기</button>
+			<button type="button" class="btn btn-info">수정</button>
+			<button type="button" class="btn btn-danger">삭제</button>
+		</div>
+		<table class="table table-bordered text-center">
+			<tbody>
+				<tr>
+					<th>제목</th>
+					<th colspan="5" style="text-align: left;">글번호, 글제목</th>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td>싸피</td>
+					<th>조회수</th>
+					<td>00</td>
+					<th>작성일</th>
+					<td>0000.00.00</td>
+				</tr>
+				<tr>
+					<td colspan="6" style="height: 200px; text-align: left;">글내용</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="text-center mb-3">
+			<button type="button" class="btn btn-info">최신목록</button>
+			<button type="button" class="btn btn-info">이전목록</button>
+		</div>
+		<form class="form-inline">
+			<textarea class="form-control mb-2 mr-2" rows="3" id="comment"
+				placeholder="주제와 무관한 댓글, 악플은 삭제될 수 있습니다." style="width: 90%;"></textarea>
+			<button type="submit" class="btn btn-primary btn-lg mb-2">작성</button>
+		</form>
+	</div>
+</body>
+</html>
