@@ -20,6 +20,10 @@
 		<h1>상품을 등록해주세요.</h1>
 		<form method="post" action="/backend/AddProduct" id="addproduct">
 			<div class="form-group">
+				<label for="pid">상품번호:</label>
+				<input type="number" id="pid" name="pid" class="form-control">
+			</div>
+			<div class="form-group">
 				<label for="pname">상품명:</label>
 				<input type="text" id="pname" name="pname" class="form-control">
 			</div>
@@ -31,6 +35,10 @@
 				<label for="description">상품설명:</label>
 				<input type="text" id="description" name="description"
 					class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="stock">상품재고:</label>
+				<input type="number" id="stock" name="stock" class="form-control">
 			</div>
 			<div class="form-group">
 				<input type="submit" class="btn btn-primary" value="저장">
@@ -47,7 +55,7 @@
 		}
 	})
 	function validation() {
-		return $("#pname").val() && $("#price").val() && $("#description").val();
+		return $("#pid").val() && $("#pname").val() && $("#price").val() && $("#description").val() && $("#stock").val();
 	}
 </script>
 </html>

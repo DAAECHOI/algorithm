@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.ParseConversionEvent;
 
 @WebServlet("/AddProduct")
 public class AddProduct extends HttpServlet {
@@ -16,9 +17,11 @@ public class AddProduct extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		int pid = Integer.parseInt(request.getParameter("pid"));
 		String pname = request.getParameter("pname");
 		String price = request.getParameter("price");
 		String description = request.getParameter("description");
+		int stock = Integer.parseInt(request.getParameter("stock"));
 		
 		PrintWriter out = response.getWriter();
 		out.println("<!DOCTYPE html>");
@@ -47,15 +50,19 @@ public class AddProduct extends HttpServlet {
 		out.println("		<tbody>");
 		out.println("			<thead>");
 		out.println("				<tr>");
+		out.println("					<th>" + "상품번호" + "</th>");
 		out.println("					<th>" + "상품명" + "</th>");
 		out.println("					<th>" + "상품가격" + "</th>");
 		out.println("					<th>" + "상품설명" + "</th>");
+		out.println("					<th>" + "상품재고" + "</th>");
 		out.println("				</tr>");
 		out.println("			</thead>");
 		out.println("			<tr>");
+		out.println("				<td>" + pid + "</td>");
 		out.println("				<td>" + pname + "</td>");
 		out.println("				<td>" + price + "</td>");
 		out.println("				<td>" + description + "</td>");
+		out.println("				<td>" + stock + "</td>");
 		out.println("			</tr>");
 		out.println("		</tbody>");
 		out.println("	</table>");
