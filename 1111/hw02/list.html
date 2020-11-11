@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>게시글 목록</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+</head>
+<body>
+    <div id="app" class='container'>
+        <p>
+            <a href="./index.html">HOME</a>
+        </p>
+        <h2 class='text-center'>사원 목록</h2>
+        <div class="text-right">
+            <button class="btn btn-primary" @click="movePage">등록</button>
+        </div>
+        <div class="text-center">
+            <input type="text" id="sname" v-model="sname">
+            <button class="btn btn-primary" @click="searchEmp">검색</button>
+        </div>
+        <div v-if="emps.length">
+            <table class='table table-boarded table-condensed'>
+                <colgroup>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                    <col width='20%'/>
+                </colgroup>
+                <tr>
+                    <td>사원 아이디</td>                    
+                    <td>사원명</td>                    
+                    <td>부서</td>                    
+                    <td>직책</td>                    
+                    <td>연봉</td>                    
+                </tr>
+                <tr v-for="(emp, index) in emps">
+                    <td v-text="emp.empno"></td>
+                    <td> <a :href="'search.html?empno=' + emp.empno"> {{emp.empname}}</a></td>
+                    <td v-text="emp.dept"></td>
+                    <td v-text="emp.position"></td>
+                    <td v-text="emp.salary"></td>
+                </tr>
+            </table>
+        </div>
+        <div v-else>
+                <h3 class='text-center'>사원이 없습니다</h3>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el :'#app',
+            data:{
+                emps : [],
+                src : [],
+                sname : ''
+            },
+            methods : {
+                movePage : function(){
+                    location.href='add.html';
+                },
+                searchEmp : function(){
+                    if(this.sname != ''){
+                        this.emps = this.src.filter( emp => {
+                            return this.sname == emp.empname
+                        })
+                    }
+                    else{
+                        this.emps = this.src;
+                    }
+                }
+            },
+            created(){
+                const emp = localStorage.getItem('emp');
+                let newEmp = {
+                    sequence:0,
+                    items:[]
+                }
+                
+                if(emp){
+                    newEmp = JSON.parse(emp);
+                }
+                else{
+                    localStorage.setItem('emp', JSON.stringify(newEmp));
+                }
+
+                newEmp.items.sort((a, b) => {
+                    return -(a.no-b.no);
+                })
+
+                this.emps = newEmp.items;
+                this.src = newEmp.items;
+            }
+        })
+    
+    </script>
+</body>
+</html>

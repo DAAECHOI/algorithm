@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>게시글 목록</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <p>
+        <a href="./index.html">HOME</a>
+        <br>
+        <a href="./list.html">게시판</a>
+    </p>
+      <h2 class="text-center"> Vue를 이용한 게시판</h2>
+      <table
+        class=" table table-condensed w-25 "
+      >
+        <tr>
+          <th>번호</th>
+          <td v-text="board.no"></td>
+        </tr>
+        <tr>
+          <th>글쓴이</th>
+          <td v-text="board.writer"></td>
+        </tr>
+        <tr>
+          <th>제목</th>
+          <td v-text="board.title"></td>
+        </tr>
+        <tr>
+          <th>날짜</th>
+          <td v-text="board.regtime"></td>
+        </tr>
+        <tr>
+          <td colspan="2" v-text="board.content"></td>
+        </tr>
+      </table>
+      <div  class='text-right'>
+        <a  class='btn btn-primary' href='list.html'>목록</a>
+        <a  class='btn btn-primary' :href="'update.html?no=' + board.no">수정</a>
+        <a  class='btn btn-primary' :href="'remove.html?no=' + board.no">삭제</a>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            board:{},
+            no:''
+          }
+        },
+        created() {
+          const params = new URL(document.location).searchParams;
+          this.no = params.get('no');
+          const board = JSON.parse(localStorage.getItem('board'))
+          for(let obj of board.items){
+            if(obj.no == this.no){
+              this.board = obj;
+              break;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
